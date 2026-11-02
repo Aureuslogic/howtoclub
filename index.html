@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Will You Measure Your Life? | HBS Strategic Legacy & AI Diagnostic</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Playfair Display for HBS Editorial Feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            obsidian: '#050811',
+            navy: '#0A2A66',
+            card: '#0c1221',
+            cardhover: '#121b30',
+            border: '#1e2a4a',
+            gold: '#D4AF37',
+            goldlight: '#f3d15b',
+            crimson: '#ef4444',
+            emerald: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050811;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(10, 42, 102, 0.55), transparent 42%),
+        radial-gradient(circle at 90% 85%, rgba(212, 175, 55, 0.12), transparent 42%);
+      color: #f8fafc;
+      min-height: 100vh;
+    }
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.22);
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #D4AF37, #b89225);
+    }
+    .gold-gradient:hover:not(:disabled) {
+      background: linear-gradient(135deg, #f3d15b, #D4AF37);
+    }
+    input[type="range"] {
+      accent-color: #D4AF37;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #050811 !important; color: #fff !important; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-obsidian">
+
+  <div class="max-w-5xl mx-auto px-4 py-8 pb-20">
+    <!-- TOP NAVIGATION & QUICK TEST BAR -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-border no-print">
+      <div class="flex items-center gap-2">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-gold/10 text-gold border border-gold/40">
+          Clayton Christensen HBS Framework
+        </span>
+        <span class="hidden sm:inline-block text-xs text-slate-400 font-medium">
+          Resource Allocation & AI Bottleneck Removal
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="instant-demo-btn" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white/5 hover:bg-gold/15 text-slate-200 hover:text-gold border border-border hover:border-gold transition flex items-center gap-1.5">
+          <span>⚡</span> Instant Demo: Test Full Report
+        </button>
+        <button id="reset-app-btn" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-border transition hidden">
+          ↺ Restart
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO HEADER -->
+    <header class="text-center mb-10">
+      <p class="font-serif italic text-gold text-lg sm:text-xl mb-2">
+        "A person's true strategy is defined not by what they say matters, but by where their time, talent, and money actually flow."
+      </p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+        How Will You Measure Your Life, and <span class="text-gold">Where Is Your Potential Leaking?</span>
+      </h1>
+      <p class="text-slate-300 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+        An interactive 20-point strategic audit combining Harvard Business School Professor Clayton Christensen’s resource-allocation laws with <strong>AI-driven productivity and cashflow bottleneck removal</strong> across 8 life pillars.
+      </p>
+    </header>
+
+    <!-- STEP 1: DELIBERATE STRATEGY -->
+    <section id="step-stated" class="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-2xl mb-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-gold">Step 1 of 3: Deliberate Strategy</span>
+        <span id="selection-count" class="px-3 py-1 rounded-full text-xs font-bold bg-navy/70 text-gold border border-gold/30">
+          0 of 3 priorities selected
+        </span>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white mb-1">
+        Identify Your Top 3 Life & Legacy Priorities
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mb-6">
+        and let our Framework help lay things out for you to see, judge and use. Select the Top 3 areas you want to Improve over the next 12 months:
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 my-6" id="pillar-grid">
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="T">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">1. Time Sovereignty</h3>
+            <span class="text-lg">⏱️</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Removing administrative bottlenecks so you own your schedule and margin.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="F">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">2. Finances & Growth</h3>
+            <span class="text-lg">💷</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Clearing cashflow bottlenecks and building scalable commercial assets.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="A">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">3. AI Bottleneck Removal</h3>
+            <span class="text-lg">🧠</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Deploying AI to remove operational friction, speed up learning, and multiply output.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="P">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">4. Peer Honour & Voice</h3>
+            <span class="text-lg">🎙️</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Speaking with unshakeable authority in crowds and earning genuine respect from peers.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="C">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">5. Community Respect</h3>
+            <span class="text-lg">🏛️</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Building surplus to mentor, teach, and uplift your local network.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="M">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">6. Faith & Stewardship</h3>
+            <span class="text-lg">✨</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Honouring your calling by multiplying your talents instead of burying them in distraction.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="H">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">7. Health & Vitality</h3>
+            <span class="text-lg">⚡</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Protecting sleep, energy, and mental peace so burnout never cuts your mission short.</p>
+        </div>
+
+        <div class="pillar-tile group bg-white/[0.02] hover:bg-cardhover border border-border rounded-xl p-4 cursor-pointer transition-all" data-pillar="G">
+          <div class="flex items-center justify-between mb-1.5">
+            <h3 class="font-bold text-white text-sm sm:text-base">8. Big Aspirations</h3>
+            <span class="text-lg">🎯</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Turning long-delayed visions and phone notes into finished, visible milestones.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-border">
+        <div class="text-xs text-slate-400">
+          Tip: Pick the 3 pillars you want to improve over the next 12 months.
+        </div>
+        <button id="start-quiz-btn" disabled class="gold-gradient text-obsidian font-extrabold px-7 py-3.5 rounded-xl shadow-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+          Begin 20-Scenario Resource Audit →
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2: 20 SCENARIO QUESTIONS -->
+    <section id="step-quiz" class="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-2xl mb-6 hidden">
+      <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden mb-4">
+        <div id="quiz-progress" class="h-full bg-gradient-to-r from-blue-500 to-gold transition-all duration-300" style="width: 5%;"></div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-bold uppercase tracking-wider text-gold mb-2">
+        <span id="scenario-counter">Decision 1 of 20</span>
+        <span id="scenario-phase">Phase I: Capital & Learning Allocation</span>
+      </div>
+
+      <div id="scenario-hbs-lens" class="text-xs text-blue-300 bg-navy/40 border border-blue-800/50 rounded-lg px-3 py-1.5 mb-4 inline-block">
+        HBS Principle: Marginal Cost Trap ("Just This Once")
+      </div>
+
+      <h3 id="scenario-question" class="text-xl sm:text-2xl font-bold text-white mb-6 leading-snug"></h3>
+
+      <div class="grid grid-cols-1 gap-3.5">
+        <button id="opt-a-btn" class="text-left bg-white/[0.025] hover:bg-navy/40 border border-border hover:border-gold rounded-xl p-4 sm:p-5 transition-all flex items-start gap-4 group">
+          <div class="min-w-[36px] h-9 rounded-lg bg-gold/15 border border-gold/40 text-gold font-extrabold flex items-center justify-center text-sm mt-0.5 group-hover:bg-gold group-hover:text-obsidian transition">
+            A
+          </div>
+          <div id="opt-a-text" class="text-slate-100 text-sm sm:text-base leading-relaxed"></div>
+        </button>
+
+        <button id="opt-b-btn" class="text-left bg-white/[0.025] hover:bg-navy/40 border border-border hover:border-gold rounded-xl p-4 sm:p-5 transition-all flex items-start gap-4 group">
+          <div class="min-w-[36px] h-9 rounded-lg bg-gold/15 border border-gold/40 text-gold font-extrabold flex items-center justify-center text-sm mt-0.5 group-hover:bg-gold group-hover:text-obsidian transition">
+            B
+          </div>
+          <div id="opt-b-text" class="text-slate-100 text-sm sm:text-base leading-relaxed"></div>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between mt-6 pt-4 border-t border-border">
+        <button id="prev-q-btn" class="text-xs font-semibold text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-border hover:border-slate-500 transition">
+          Previous Question
+        </button>
+        <span class="text-xs text-slate-400">Answer honestly based on what you actually do, not what sounds ideal.</span>
+      </div>
+    </section>
+
+    <!-- STEP 3: PRE-REPORT CALIBRATION GATE -->
+    <section id="step-gate" class="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-2xl max-w-2xl mx-auto mb-6 hidden">
+      <div class="bg-gradient-to-br from-navy/70 to-gold/10 border border-gold/40 rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-gold mb-2">
+          <span>20-Point Resource Allocation Audit Complete</span>
+          <span class="text-emerald">Ready to Unlock</span>
+        </div>
+        <p class="text-sm text-slate-200 leading-relaxed">
+          We have cross-examined your <strong>Deliberate Strategy</strong> (<span id="gate-stated-pillars" class="text-gold font-semibold"></span>) against your <strong>Emergent Daily Habits</strong> across all 20 scenarios.
+        </p>
+        <div class="grid grid-cols-3 gap-3 mt-4 pt-3 border-t border-white/10 text-center">
+          <div>
+            <span class="block text-[11px] uppercase text-slate-400">Time Overhead Bleed</span>
+            <strong id="gate-teaser-hours" class="text-base sm:text-lg text-crimson">-- hrs/yr</strong>
+          </div>
+          <div>
+            <span class="block text-[11px] uppercase text-slate-400">Comfort-Zone Leak</span>
+            <strong id="gate-teaser-leak" class="text-base sm:text-lg text-gold">£--/yr</strong>
+          </div>
+          <div>
+            <span class="block text-[11px] uppercase text-slate-400">Strategy Alignment</span>
+            <strong id="gate-teaser-align" class="text-base sm:text-lg text-emerald">--%</strong>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white mb-1">Personalise Your Life Dossier</h2>
+      <p class="text-slate-400 text-sm mb-5">
+        Enter your name and aspiration below to generate your custom plain-English write-up, your 8-Pillar Radar Topology, and the Cost of Inaction vs. AI Bottleneck Removal comparison.
+      </p>
+
+      <form id="gate-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Your First Name *</label>
+            <input type="text" id="user-name" required placeholder="e.g., Samuel" class="w-full bg-obsidian border border-border focus:border-gold rounded-xl px-4 py-3 text-white text-sm outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Your Best Email *</label>
+            <input type="email" id="user-email" required placeholder="samuel@example.com" class="w-full bg-obsidian border border-border focus:border-gold rounded-xl px-4 py-3 text-white text-sm outline-none transition" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+            What is your #1 Aspiration over the next 12 months? (Income, Business, Voice, or Legacy) *
+          </label>
+          <input type="text" id="user-goal" required placeholder="e.g., Remove productivity and cashflow bottlenecks, grow my business, and speak with honour in any crowd" class="w-full bg-obsidian border border-border focus:border-gold rounded-xl px-4 py-3 text-white text-sm outline-none transition" />
+        </div>
+
+        <button type="submit" class="w-full gold-gradient text-obsidian font-extrabold py-3.5 rounded-xl shadow-lg transition text-base">
+          Reveal My Individualised Write-Up & 8-Pillar Map →
+        </button>
+      </form>
+    </section>
+
+    <!-- STEP 4: FULL STRATEGIC REPORT -->
+    <section id="step-report" class="space-y-6 hidden">
+
+      <!-- Executive Dossier Banner -->
+      <div class="bg-gradient-to-r from-navy to-card border border-gold rounded-2xl p-6 sm:p-8 flex flex-wrap items-center justify-between gap-4 shadow-2xl">
+        <div>
+          <span id="report-tier-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/40">
+            HBS Resource Allocation Diagnosis
+          </span>
+          <h2 id="report-headline" class="text-2xl sm:text-3xl font-extrabold text-white mt-2"></h2>
+          <p id="report-subheadline" class="text-slate-300 text-sm sm:text-base mt-1"></p>
+        </div>
+        <button onclick="window.print()" class="px-4 py-2 rounded-xl text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition no-print">
+          Save / Print PDF Report
+        </button>
+      </div>
+
+      <!-- 4 Key Strategic KPIs -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-card border border-border rounded-xl p-5">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Time Overhead Lost</div>
+          <div id="kpi-time-lost" class="text-3xl font-extrabold text-crimson my-1">-- hrs/yr</div>
+          <div id="kpi-weeks-lost" class="text-xs text-slate-300">Spent on manual grind AI can remove</div>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-5">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Marginal-Cost Comfort Leak</div>
+          <div id="kpi-money-leak" class="text-3xl font-extrabold text-gold my-1">£--/yr</div>
+          <div class="text-xs text-slate-300">Diverted to 48-hr comfort over capability</div>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-5">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Current AI Bottleneck Tier</div>
+          <div id="kpi-ai-tier" class="text-2xl font-extrabold text-blue-400 my-1">Level 1</div>
+          <div id="kpi-ai-sub" class="text-xs text-slate-300">Surface prompts vs. Bottleneck-removal systems</div>
+        </div>
+        <div class="bg-card border border-border rounded-xl p-5">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Deliberate vs Emergent Match</div>
+          <div id="kpi-alignment" class="text-3xl font-extrabold text-emerald my-1">--%</div>
+          <div class="text-xs text-slate-300">Alignment between stated Top 3 & daily habits</div>
+        </div>
+      </div>
+
+      <!-- RADAR TOPOLOGY + CHRISTENSEN'S 3 STRATEGIC TRAPS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 bg-card border border-border rounded-2xl p-6 flex flex-col items-center justify-center">
+          <h3 class="text-lg font-bold text-white mb-1 text-center">8-Pillar Life Portfolio Topology</h3>
+          <p class="text-xs text-slate-400 mb-4 text-center">
+            <span class="text-crimson font-semibold">Red: Current Comfort-Zone Path</span> vs. <span class="text-emerald font-semibold">Green: AI Bottleneck Removal Path</span>
+          </p>
+          <canvas id="radarCanvas" width="380" height="340" class="max-w-full"></canvas>
+          <p class="text-[11px] text-slate-400 mt-2 text-center">
+            ★ Gold stars mark the 3 Deliberate Priorities declared in Step 1.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-gold">Clayton Christensen's 3 Laws Applied to Your Choices</span>
+            <h3 class="text-xl font-bold text-white mt-1 mb-4">Why Good, Ambitious Adults Drift Off Course</h3>
+
+            <div class="space-y-3.5 text-sm">
+              <div class="p-3.5 rounded-xl bg-white/[0.02] border border-border">
+                <div class="font-bold text-gold mb-0.5">1. Deliberate vs. Emergent Strategy Drift</div>
+                <p class="text-slate-300 text-xs leading-relaxed">
+                  You stated that <strong id="hbs-stated-inline" class="text-white"></strong> matter most. Yet your daily resource process allocates hours to manual work and free YouTube clips, creating an <em>Emergent Strategy</em> of stagnation.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-white/[0.02] border border-border">
+                <div class="font-bold text-gold mb-0.5">2. The Marginal Cost Trap ("Just This Once")</div>
+                <p class="text-slate-300 text-xs leading-relaxed">
+                  Christensen proved that people ruin their trajectory because the <em>marginal cost</em> of watching "just one more free video" or spending £200 on clothes/takeaways "just this month" feels harmless today, until 12 months pass and productivity & cashflow bottlenecks have locked you in place.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-white/[0.02] border border-border">
+                <div class="font-bold text-gold mb-0.5">3. Starving High-Leverage Intangibles</div>
+                <p class="text-slate-300 text-xs leading-relaxed">
+                  Because clothes, food, and clearing basic emails give an instant dopamine hit, you over-fund them while starving <strong>AI bottleneck-removal mentorship</strong>, the exact multiplier that clears cashflow and time overheads.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs text-slate-300">
+            <span>Ready to reallocate your resources?</span>
+            <a href="#enquiry-section" class="text-gold font-bold hover:underline">Jump to Enquiry Form ↓</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE INDIVIDUALISED PLAIN-ENGLISH WRITE-UP -->
+      <div id="personalised-letter-container" class="bg-gradient-to-b from-slate-900 to-card border border-blue-900/60 rounded-2xl p-6 sm:p-9 shadow-2xl space-y-4"></div>
+
+      <!-- SIDE-BY-SIDE: COST OF INACTION VS BENEFITS OF ACTION -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-crimson/[0.05] border border-crimson/40 rounded-2xl p-6">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-crimson">The Cost of Inaction (Next 12 Months)</span>
+          <h3 class="text-xl font-bold text-white mt-1 mb-4">If You Stay in Comfort-Zone & Freebie Thinking</h3>
+          <ul id="cost-of-inaction-list" class="space-y-3 text-sm text-slate-200"></ul>
+        </div>
+
+        <div class="bg-emerald/[0.06] border border-emerald/40 rounded-2xl p-6">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald">The Reward of Guided Action (Next 90 Days)</span>
+          <h3 class="text-xl font-bold text-white mt-1 mb-4">When You Use AI to Remove Productivity & Cashflow Bottlenecks</h3>
+          <ul id="benefits-of-action-list" class="space-y-3 text-sm text-slate-200"></ul>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE WHAT-IF RESOURCE REALLOCATION SANDBOX + DUAL BARS -->
+      <div class="bg-card border border-border rounded-2xl p-6 sm:p-8">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-gold">Interactive Self-Persuasion Sandbox</span>
+            <h3 class="text-xl font-bold text-white">Test Reallocating Your Weekly Resources Right Now</h3>
+            <p class="text-xs sm:text-sm text-slate-400">
+              Drag the 3 levers below to see how shifting out of the Comfort Zone into AI Bottleneck Removal transforms your 8 Life Pillars over 12 months.
+            </p>
+          </div>
+          <button id="max-leverage-btn" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald/15 text-emerald border border-emerald/40 hover:bg-emerald/25 transition no-print">
+            Simulate 100% AI Bottleneck Removal
+          </button>
+        </div>
+
+        <!-- 3 Sliders -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-6 p-4 rounded-xl bg-obsidian/70 border border-border no-print">
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1.5">
+              <span class="text-slate-200">1. Upgrade from Free Clips to AI Systems</span>
+              <span id="lbl-slider-ai" class="text-gold">+0% Shift</span>
+            </div>
+            <input type="range" id="slider-ai" min="0" max="100" value="0" class="w-full cursor-pointer" />
+            <p class="text-[11px] text-slate-400 mt-1">Replaces scattered YouTube tips with workflow bottleneck removal.</p>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1.5">
+              <span class="text-slate-200">2. Redirect Comfort Spend to Capability</span>
+              <span id="lbl-slider-cap" class="text-emerald">£0/mo</span>
+            </div>
+            <input type="range" id="slider-cap" min="0" max="250" step="25" value="0" class="w-full cursor-pointer" />
+            <p class="text-[11px] text-slate-400 mt-1">Redirects a slice of discretionary spending into cashflow-generating skills.</p>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-1.5">
+              <span class="text-slate-200">3. Remove Weekly Productivity Bottlenecks</span>
+              <span id="lbl-slider-time" class="text-blue-400">0 hrs/wk</span>
+            </div>
+            <input type="range" id="slider-time" min="0" max="10" value="0" class="w-full cursor-pointer" />
+            <p class="text-[11px] text-slate-400 mt-1">Uses AI workflows to eliminate admin drag and clear cashflow.</p>
+          </div>
+        </div>
+
+        <!-- 8-Pillar Dual Bars -->
+        <div id="bars-comparison-wrap" class="space-y-4 mt-4"></div>
+      </div>
+
+      <!-- SEND AN ENQUIRY ACTION ENGINE -->
+      <div id="enquiry-section" class="bg-gradient-to-br from-navy/85 to-card border-2 border-gold rounded-2xl p-6 sm:p-9 shadow-2xl gold-glow">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/20 text-gold border border-gold/40">
+          Your Strategic Next Step: Align Your Resources With Your Aspirations
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3 mb-2">
+          Send an Enquiry: Discover How We Can Help You Remove Bottlenecks
+        </h2>
+        <p class="text-slate-200 text-sm sm:text-base mb-6 leading-relaxed">
+          You don't need another year of free 3-minute videos or working harder the old way. Let our team show you step-by-step how to use <strong>AI to remove productivity and cashflow bottlenecks</strong>, so you can cut time overheads, accelerate your business or career, and speak with honour and confidence in any crowd.
+        </p>
+
+        <form id="enquiry-form" class="space-y-5">
+          <div>
+            <label class="block text-sm font-bold text-gold mb-3">
+              1. Tick the outcomes you want our help to achieve over the next 90 days:
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-border rounded-xl p-3.5 cursor-pointer text-sm">
+                <input type="checkbox" name="help_topic" value="Using AI to remove cashflow & business bottlenecks" checked class="w-4 h-4 accent-gold" />
+                <span>Using AI to remove cashflow & business bottlenecks</span>
+              </label>
+              <label class="flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-border rounded-xl p-3.5 cursor-pointer text-sm">
+                <input type="checkbox" name="help_topic" value="Clearing productivity bottlenecks for family, faith & health" checked class="w-4 h-4 accent-gold" />
+                <span>Clearing productivity bottlenecks for family, faith & health</span>
+              </label>
+              <label class="flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-border rounded-xl p-3.5 cursor-pointer text-sm">
+                <input type="checkbox" name="help_topic" value="Speaking with authority in crowds & earning peer honour" checked class="w-4 h-4 accent-gold" />
+                <span>Speaking with authority in crowds & earning peer honour</span>
+              </label>
+              <label class="flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-border rounded-xl p-3.5 cursor-pointer text-sm">
+                <input type="checkbox" name="help_topic" value="Turning aspirations into community respect & legacy" checked class="w-4 h-4 accent-gold" />
+                <span>Turning aspirations into community respect & legacy</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Preferred Contact Method / Phone (Optional)</label>
+              <input type="text" id="enquiry-phone" placeholder="e.g., WhatsApp / +44 7700 900000" class="w-full bg-obsidian border border-border focus:border-gold rounded-xl px-4 py-3 text-white text-sm outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Best Time for a 15-Min Strategy Chat</label>
+              <select id="enquiry-time" class="w-full bg-obsidian border border-border focus:border-gold rounded-xl px-4 py-3 text-white text-sm outline-none">
+                <option value="Morning (9am to 12pm)">Morning (9am to 12pm)</option>
+                <option value="Afternoon (12pm to 5pm)">Afternoon (12pm to 5pm)</option>
+                <option value="Evening (5pm to 8pm)">Evening (5pm to 8pm)</option>
+                <option value="Weekend">Weekend Slot</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+              2. Add a quick note about where you are right now and how we can help you:
+            </label>
+            <textarea id="enquiry-message" rows="3" placeholder="e.g., I have been trying to learn AI from free videos for months. I want structured guidance to remove cashflow and time bottlenecks in my business..." class="w-full bg-obsidian border border-border focus:border-gold rounded-xl p-4 text-white text-sm outline-none"></textarea>
+          </div>
+
+          <button type="submit" id="send-enquiry-btn" class="w-full gold-gradient text-obsidian font-extrabold py-4 rounded-xl shadow-xl text-base sm:text-lg transition">
+            Send My Enquiry: Show Me How You Can Help Me
+          </button>
+        </form>
+
+        <!-- Confirmation & Webhook Inspector -->
+        <div id="enquiry-confirmation" class="hidden mt-6 p-6 bg-emerald/15 border border-emerald rounded-xl space-y-3">
+          <h4 class="text-emerald font-bold text-lg">Your Enquiry & 20-Point Strategic Audit Have Been Sent!</h4>
+          <p class="text-sm text-slate-200 leading-relaxed">
+            Thank you, <strong id="confirm-name"></strong>. We have logged your 8-Pillar Life Portfolio scores and your 12-month aspiration. Our team will reach out shortly to show you how to bridge the gap from Comfort-Zone DIY into AI Bottleneck Removal.
+          </p>
+          <details class="text-xs text-slate-400 pt-2">
+            <summary class="cursor-pointer hover:text-gold font-semibold">Inspect Webhook JSON Payload Sent to CRM</summary>
+            <pre id="webhook-json-preview" class="mt-2 p-3 bg-obsidian rounded-lg overflow-x-auto text-[11px] text-emerald"></pre>
+          </details>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <script>
+    const WEBHOOK_URL = "https://hook.eu1.make.com/YOUR_WEBHOOK_ENDPOINT_HERE";
+
+    const PILLAR_LABELS = {
+      T: "Time Sovereignty & Overhead Reduction",
+      F: "Finances & New Business Growth",
+      A: "AI Bottleneck Removal & Fast Learning",
+      P: "Peer Honour & Crowd Confidence",
+      C: "Community Respect & Social Impact",
+      M: "Faith, Stewardship & Moral Purpose",
+      H: "Health, Vitality & Peace of Mind",
+      G: "Aspirations & Goal Attainment"
+    };
+
+    const SHORT_LABELS = {
+      T: "Time Sovereignty",
+      F: "Finances & Growth",
+      A: "AI Bottleneck Removal",
+      P: "Peer Honour",
+      C: "Community Respect",
+      M: "Faith & Purpose",
+      H: "Health & Vitality",
+      G: "Goal Attainment"
+    };
+
+    // 20 Stealth Virtue Scenarios with Randomized Trap Positions
+    const SCENARIOS = [
+      {
+        key: "q1",
+        phase: "Phase I: Capital & Learning Allocation",
+        hbsLens: "HBS Principle: Self-Reliant Thriftiness vs. Speed to Mastery",
+        prompt: "You want to bring new AI capabilities into your work or business this month. Which approach feels most sensible to you right now?",
+        A: "Be self-reliant and thrifty: research free short videos on YouTube, bookmark useful posts, and test things on my own before spending any money.",
+        B: "Buy speed immediately: pay a modest fee to learn directly from proven practitioners who hand me working bottleneck-removal systems in a weekend.",
+        trapChoice: "A",
+        tag: "youtube_freebie",
+        deltaTrap: { T: -6, F: -6, A: -10, P: -5, C: -2, M: -2, H: -2, G: -6, leak: 6 },
+        deltaGrowth: { T: 6, F: 6, A: 10, P: 5, C: 2, M: 3, H: 2, G: 6, leak: 0 }
+      },
+      {
+        key: "q2",
+        phase: "Phase I: Capital & Learning Allocation",
+        hbsLens: "HBS Principle: Tangible Immediate Reward vs. Delayed Capability",
+        prompt: "After a long, demanding month of hard work, you have £250 left over after your main bills are covered. How do you naturally use it?",
+        A: "Put the £250 into an advanced skill, mentor, or AI system that removes operational bottlenecks and won't pay off for 90 days.",
+        B: "Reward yourself and your loved ones tangibly: a great meal out, a wardrobe refresh, takeaways, or weekend entertainment so you actually enjoy the fruit of your hard work today.",
+        trapChoice: "B",
+        tag: "comfort_spending",
+        deltaTrap: { T: -2, F: -10, A: -6, P: -3, C: -4, M: -4, H: -2, G: -6, leak: 8 },
+        deltaGrowth: { T: 4, F: 10, A: 6, P: 4, C: 4, M: 4, H: 2, G: 6, leak: 0 }
+      },
+      {
+        key: "q3",
+        phase: "Phase I: Capital & Learning Allocation",
+        hbsLens: "HBS Principle: Everyday Convenience vs. Structural Leverage",
+        prompt: "When you use AI during a typical week right now, which description best matches your workflow?",
+        A: "I use it as a helpful assistant when I need something quick: drafting an email, polishing wording, or answering a question as it comes up.",
+        B: "I use AI workflows that specifically remove productivity and cashflow bottlenecks, cut weekly time overheads, and build commercial assets.",
+        trapChoice: "A",
+        tag: "basic_ai_ceiling",
+        deltaTrap: { T: -8, F: -8, A: -10, P: -6, C: -2, M: 0, H: -2, G: -6, leak: 6 },
+        deltaGrowth: { T: 8, F: 8, A: 10, P: 6, C: 3, M: 2, H: 3, G: 6, leak: 0 }
+      },
+      {
+        key: "q4",
+        phase: "Phase I: Capital & Learning Allocation",
+        hbsLens: "HBS Principle: Traditional Thoroughness vs. AI Knowledge Compression",
+        prompt: "You need to master a complex new subject or prepare a training session to teach others in your network. How do you prefer to prepare?",
+        A: "Use AI as an interactive tutor and curriculum partner to interrogate the material, test my understanding, and build the training in 90 minutes.",
+        B: "Take the thorough, traditional route: read through articles, books, and notes step by step over several weeks until I feel ready.",
+        trapChoice: "B",
+        tag: "slow_learning",
+        deltaTrap: { T: -6, F: -4, A: -8, P: -6, C: -4, M: -2, H: -4, G: -4, leak: 5 },
+        deltaGrowth: { T: 6, F: 4, A: 8, P: 6, C: 5, M: 2, H: 4, G: 5, leak: 0 }
+      },
+      {
+        key: "q5",
+        phase: "Phase I: Capital & Learning Allocation",
+        hbsLens: "HBS Principle: Prudent Caution vs. Cost of Delay",
+        prompt: "You come across a guided mentorship programme that teaches bottleneck-removal and business growth skills for the price of a weekend away. What is your honest instinct?",
+        A: "Be cautious with my budget: wait a few months until my schedule is quieter and I have tried figuring out more of it on my own.",
+        B: "Step in immediately: knowing that waiting 6 months costs far more in lost time and missed income than the modest enrolment fee.",
+        trapChoice: "A",
+        tag: "delay_investment",
+        deltaTrap: { T: -6, F: -8, A: -6, P: -4, C: -2, M: -4, H: -2, G: -8, leak: 6 },
+        deltaGrowth: { T: 6, F: 8, A: 6, P: 4, C: 2, M: 4, H: 2, G: 8, leak: 0 }
+      },
+      {
+        key: "q6",
+        phase: "Phase II: Time Overheads & Vitality",
+        hbsLens: "HBS Principle: Hands-On Craftsmanship vs. Overhead Reduction",
+        prompt: "You have 8 hours of recurring weekly reports, client communications, planning, or admin. How do you handle that workload?",
+        A: "Build an AI workflow to remove 70% of the administrative bottleneck in 90 minutes, even if it takes a weekend to set up properly.",
+        B: "Handle it personally from scratch the way I always have, so I know every detail is done my way.",
+        trapChoice: "B",
+        tag: "high_time_overhead",
+        deltaTrap: { T: -10, F: -4, A: -6, P: 0, C: -2, M: -2, H: -8, G: -4, leak: 6 },
+        deltaGrowth: { T: 10, F: 6, A: 6, P: 2, C: 3, M: 2, H: 8, G: 5, leak: 0 }
+      },
+      {
+        key: "q7",
+        phase: "Phase II: Time Overheads & Vitality",
+        hbsLens: "HBS Principle: Pushing Through Fatigue vs. Protecting the Engine",
+        prompt: "When work and family responsibilities pile up during a busy week, how do you manage your physical energy, exercise, and sleep?",
+        A: "Push through and sacrifice a bit of sleep or exercise for now, telling myself I will catch up on rest once this busy spell passes.",
+        B: "Use bottleneck-removal systems to cut my work hours so my sleep, exercise, and fresh nutrition remain non-negotiable every week.",
+        trapChoice: "A",
+        tag: "health_neglect",
+        deltaTrap: { T: -4, F: -2, A: 0, P: -2, C: -2, M: -2, H: -12, G: -4, leak: 5 },
+        deltaGrowth: { T: 4, F: 2, A: 0, P: 3, C: 2, M: 3, H: 12, G: 4, leak: 0 }
+      },
+      {
+        key: "q8",
+        phase: "Phase II: Time Overheads & Vitality",
+        hbsLens: "HBS Principle: Core Job Security vs. Commercial AI Expansion",
+        prompt: "New business growth and cashflow expansion today are heavily driven by AI bottleneck removal. How connected is AI to your personal income strategy?",
+        A: "I actively use AI to clear cashflow bottlenecks, attract clients, and build new streams of value.",
+        B: "I focus on working hard in my current role or routine first, and I haven't tied AI directly to how I generate income yet.",
+        trapChoice: "B",
+        tag: "missed_business_growth",
+        deltaTrap: { T: -4, F: -10, A: -6, P: -4, C: -2, M: 0, H: -2, G: -8, leak: 6 },
+        deltaGrowth: { T: 4, F: 10, A: 6, P: 5, C: 3, M: 2, H: 2, G: 8, leak: 0 }
+      },
+      {
+        key: "q9",
+        phase: "Phase II: Time Overheads & Vitality",
+        hbsLens: "HBS Principle: Well-Earned Decompression vs. Compounding Margin",
+        prompt: "It is 8:30 PM on a Tuesday after a full day. You have 90 minutes before bed. What feels like the most natural way to spend it?",
+        A: "Switch my brain off completely: watch a good series, scroll through feeds, or browse online to decompress from the day.",
+        B: "Invest 45 focused minutes into sharpening a high-leverage skill or project, then wind down peacefully for sleep.",
+        trapChoice: "A",
+        tag: "evening_drift",
+        deltaTrap: { T: -8, F: -4, A: -6, P: -2, C: -2, M: -4, H: -6, G: -6, leak: 6 },
+        deltaGrowth: { T: 8, F: 4, A: 6, P: 3, C: 2, M: 4, H: 6, G: 6, leak: 0 }
+      },
+      {
+        key: "q10",
+        phase: "Phase II: Time Overheads & Vitality",
+        hbsLens: "HBS Principle: Convenience Relief vs. Structural Margin",
+        prompt: "After a particularly draining week, how do you usually restore your mood on Friday evening?",
+        A: "Step back to simplify my systems, get outdoors, lean on faith, and recharge without needing to spend money.",
+        B: "Treat myself to convenience: order a takeaway, buy something nice online, or go out for food and drinks to forget the week.",
+        trapChoice: "B",
+        tag: "stress_spending",
+        deltaTrap: { T: -4, F: -8, A: -2, P: -2, C: -2, M: -6, H: -8, G: -4, leak: 5 },
+        deltaGrowth: { T: 4, F: 8, A: 2, P: 2, C: 2, M: 6, H: 8, G: 4, leak: 0 }
+      },
+      {
+        key: "q11",
+        phase: "Phase III: Peer Honour & Community Standing",
+        hbsLens: "HBS Principle: Careful Humility vs. Visible Thought Leadership",
+        prompt: "You are at a gathering of respected professionals or business owners when someone asks how AI removes business bottlenecks. What is your instinct?",
+        A: "Listen politely from my seat: I prefer not to speak up in a crowd unless I am 100% certain I know the topic inside out.",
+        B: "Speak up with calm authority: share practical examples of how AI bottleneck-removal solves real commercial problems so peers value my voice.",
+        trapChoice: "A",
+        tag: "crowd_hesitation",
+        deltaTrap: { T: 0, F: -6, A: -6, P: -12, C: -8, M: -2, H: -2, G: -6, leak: 6 },
+        deltaGrowth: { T: 2, F: 6, A: 6, P: 12, C: 8, M: 2, H: 2, G: 6, leak: 0 }
+      },
+      {
+        key: "q12",
+        phase: "Phase III: Peer Honour & Community Standing",
+        hbsLens: "HBS Principle: Behind-the-Scenes Safety vs. Public Honour",
+        prompt: "An organiser invites you next month to speak for 15 minutes in front of 100 peers about how AI removes productivity and cashflow bottlenecks.",
+        A: "Accept the invitation gladly: I have structured my knowledge with the right mentors so I can stand in front of any room with confidence.",
+        B: "Politely pass or suggest someone else: I feel more comfortable working behind the scenes than standing on a stage in front of a crowd.",
+        trapChoice: "B",
+        tag: "stage_avoidance",
+        deltaTrap: { T: 0, F: -6, A: -4, P: -12, C: -8, M: -2, H: -2, G: -6, leak: 5 },
+        deltaGrowth: { T: 2, F: 6, A: 4, P: 12, C: 8, M: 3, H: 2, G: 6, leak: 0 }
+      },
+      {
+        key: "q13",
+        phase: "Phase III: Peer Honour & Community Standing",
+        hbsLens: "HBS Principle: Dependable Worker vs. Sought-After Strategist",
+        prompt: "Within your circle of peers, colleagues, and extended family, what role do you most often play today?",
+        A: "The dependable, hardworking person who gets things done, though people rarely come to me for high-level AI or business strategy.",
+        B: "The forward-thinking pacesetter whom peers seek out for wise counsel, modern breakthroughs, and strategic direction.",
+        trapChoice: "A",
+        tag: "peer_stagnation",
+        deltaTrap: { T: 0, F: -4, A: -4, P: -10, C: -8, M: -2, H: 0, G: -6, leak: 4 },
+        deltaGrowth: { T: 2, F: 4, A: 4, P: 10, C: 8, M: 2, H: 2, G: 6, leak: 0 }
+      },
+      {
+        key: "q14",
+        phase: "Phase III: Peer Honour & Community Standing",
+        hbsLens: "HBS Principle: Good Intentions vs. Surplus-Driven Impact",
+        prompt: "When you think about serving your community, faith group, or local network, how do you currently contribute?",
+        A: "I build time and financial margin by clearing cashflow bottlenecks so I can mentor others, fund initiatives, and lead visibly.",
+        B: "I help out whenever I can spare an hour, though my own weekly workload and finances limit how much I can truly give.",
+        trapChoice: "B",
+        tag: "community_scarcity",
+        deltaTrap: { T: -6, F: -6, A: -2, P: -6, C: -12, M: -6, H: -2, G: -4, leak: 5 },
+        deltaGrowth: { T: 6, F: 6, A: 4, P: 6, C: 12, M: 6, H: 2, G: 4, leak: 0 }
+      },
+      {
+        key: "q15",
+        phase: "Phase III: Peer Honour & Community Standing",
+        hbsLens: "HBS Principle: Familiar Camaraderie vs. Growth Reference Group",
+        prompt: "Think about the friends or colleagues you spend the most time chatting with each week. What do your conversations usually sound like?",
+        A: "Warm, everyday topics: catching up on life, sport, outfits, food, and how expensive or busy everything has become lately.",
+        B: "Growth-focused exchanges: sharing AI bottleneck-removal systems, business opportunities, and challenging each other to rise.",
+        trapChoice: "A",
+        tag: "comfort_circle",
+        deltaTrap: { T: -4, F: -8, A: -6, P: -8, C: -6, M: -4, H: -2, G: -8, leak: 5 },
+        deltaGrowth: { T: 4, F: 8, A: 6, P: 8, C: 6, M: 4, H: 2, G: 8, leak: 0 }
+      },
+      {
+        key: "q16",
+        phase: "Phase IV: Faith, Stewardship & Aspirations",
+        hbsLens: "HBS Principle: Quiet Contentment vs. Active Multiplication of Talents",
+        prompt: "When you reflect on your faith, values, and the natural talents you have been given, which philosophy guides your daily routine?",
+        A: "Active multiplication: I believe stewardship means aggressively clearing productivity bottlenecks and acquiring modern tools so I can multiply my impact.",
+        B: "Quiet contentment: I focus on being grateful for what I have today, doing my normal duties faithfully, and avoiding unnecessary risks.",
+        trapChoice: "B",
+        tag: "buried_talents",
+        deltaTrap: { T: -4, F: -4, A: -4, P: -4, C: -6, M: -14, H: -2, G: -8, leak: 6 },
+        deltaGrowth: { T: 4, F: 4, A: 4, P: 4, C: 6, M: 14, H: 4, G: 8, leak: 0 }
+      },
+      {
+        key: "q17",
+        phase: "Phase IV: Faith, Stewardship & Aspirations",
+        hbsLens: "HBS Principle: Waiting on Timing vs. Preparing the Vessel",
+        prompt: "How do you view the relationship between praying or hoping for a major breakthrough and investing in your own capabilities?",
+        A: "I trust that the right doors will open in their own time, so I keep doing my current routine while waiting for a clear sign.",
+        B: "I prepare the vessel first: I invest in mentorship and bottleneck-removal skills now so I am equipped to carry a bigger opportunity the moment it arrives.",
+        trapChoice: "A",
+        tag: "faith_without_prep",
+        deltaTrap: { T: -2, F: -6, A: -6, P: -4, C: -4, M: -12, H: -2, G: -8, leak: 4 },
+        deltaGrowth: { T: 2, F: 6, A: 6, P: 4, C: 4, M: 12, H: 2, G: 8, leak: 0 }
+      },
+      {
+        key: "q18",
+        phase: "Phase IV: Faith, Stewardship & Aspirations",
+        hbsLens: "HBS Principle: Keeping Options Open vs. Committed Execution",
+        prompt: "Think about the biggest personal or business aspiration you had 12 months ago. Why is it at its current stage today?",
+        A: "It is actively moving forward with clear weekly milestones because I invested in structured systems and external accountability.",
+        B: "I kept it flexible in my head while handling everyday priorities first, so it is still waiting for a quieter season to launch.",
+        trapChoice: "B",
+        tag: "stalled_aspiration",
+        deltaTrap: { T: -4, F: -6, A: -4, P: -4, C: -2, M: -4, H: -2, G: -12, leak: 5 },
+        deltaGrowth: { T: 4, F: 6, A: 4, P: 4, C: 2, M: 4, H: 2, G: 12, leak: 0 }
+      },
+      {
+        key: "q19",
+        phase: "Phase IV: Faith, Stewardship & Aspirations",
+        hbsLens: "HBS Principle: Gradual Pacing vs. Asymmetric Advantage",
+        prompt: "As AI adoption accelerates across every company and profession over the next 24 months, what is your honest outlook?",
+        A: "I prefer to move at a steady, comfortable pace and adopt new tools gradually once everyone else has tested them.",
+        B: "I want an asymmetric edge today: mastering AI bottleneck-removal now while the majority of people are still watching free clips.",
+        trapChoice: "A",
+        tag: "widening_gap",
+        deltaTrap: { T: -4, F: -6, A: -6, P: -4, C: -4, M: -4, H: -2, G: -8, leak: 4 },
+        deltaGrowth: { T: 4, F: 6, A: 6, P: 4, C: 4, M: 4, H: 2, G: 8, leak: 0 }
+      },
+      {
+        key: "q20",
+        phase: "Phase IV: Faith, Stewardship & Aspirations",
+        hbsLens: "HBS Principle: The Strategic Inflection Point",
+        prompt: "Final Question: When you finish reading a diagnostic like this, what is your typical next move?",
+        A: "Take immediate, guided action: reach out to the right mentors to install the bottleneck-removal systems that will transform my next 90 days.",
+        B: "Save the insights to think about on my own, and return to my normal weekly rhythm on Monday morning.",
+        trapChoice: "B",
+        tag: "final_hesitation",
+        deltaTrap: { T: -4, F: -4, A: -4, P: -4, C: -4, M: -4, H: -2, G: -6, leak: 3 },
+        deltaGrowth: { T: 6, F: 6, A: 6, P: 6, C: 6, M: 6, H: 4, G: 8, leak: 0 }
+      }
+    ];
+
+    let statedTop3 = [];
+    let qIndex = 0;
+    let answers = {};
+    let triggeredTraps = [];
+
+    const clamp = (v, min = 12, max = 98) => Math.max(min, Math.min(max, Math.round(v)));
+
+    // Step 1 Selection (Top 3)
+    document.querySelectorAll('.pillar-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        const p = tile.getAttribute('data-pillar');
+        if (statedTop3.includes(p)) {
+          statedTop3 = statedTop3.filter(x => x !== p);
+          tile.classList.remove('border-gold', 'bg-navy/50', 'gold-glow');
+        } else if (statedTop3.length < 3) {
+          statedTop3.push(p);
+          tile.classList.add('border-gold', 'bg-navy/50', 'gold-glow');
+        }
+        document.getElementById('selection-count').textContent = `${statedTop3.length} of 3 priorities selected`;
+        document.getElementById('start-quiz-btn').disabled = statedTop3.length !== 3;
+      });
+    });
+
+    document.getElementById('start-quiz-btn').addEventListener('click', () => {
+      document.getElementById('step-stated').classList.add('hidden');
+      document.getElementById('step-quiz').classList.remove('hidden');
+      document.getElementById('reset-app-btn').classList.remove('hidden');
+      renderQuestion();
+    });
+
+    function renderQuestion() {
+      const s = SCENARIOS[qIndex];
+      document.getElementById('quiz-progress').style.width = `${((qIndex + 1) / SCENARIOS.length) * 100}%`;
+      document.getElementById('scenario-counter').textContent = `Decision ${qIndex + 1} of ${SCENARIOS.length}`;
+      document.getElementById('scenario-phase').textContent = s.phase;
+      document.getElementById('scenario-hbs-lens').textContent = s.hbsLens;
+      document.getElementById('scenario-question').textContent = s.prompt;
+      document.getElementById('opt-a-text').textContent = s.A;
+      document.getElementById('opt-b-text').textContent = s.B;
+      document.getElementById('prev-q-btn').style.visibility = qIndex === 0 ? 'hidden' : 'visible';
+    }
+
+    function rebuildTrapsList() {
+      triggeredTraps = [];
+      SCENARIOS.forEach(s => {
+        if (answers[s.key] && answers[s.key] === s.trapChoice) {
+          triggeredTraps.push(s.tag);
+        }
+      });
+    }
+
+    function recordChoice(choice) {
+      const s = SCENARIOS[qIndex];
+      answers[s.key] = choice;
+      rebuildTrapsList();
+      qIndex++;
+      if (qIndex < SCENARIOS.length) {
+        renderQuestion();
+      } else {
+        const previewStats = calculatePortfolio();
+        document.getElementById('gate-stated-pillars').textContent = statedTop3.map(k => SHORT_LABELS[k]).join(', ');
+        document.getElementById('gate-teaser-hours').textContent = `${previewStats.hoursLost} hrs/yr`;
+        document.getElementById('gate-teaser-leak').textContent = `£${previewStats.moneyLeak.toLocaleString()}/yr`;
+        document.getElementById('gate-teaser-align').textContent = `${previewStats.alignment}%`;
+        document.getElementById('step-quiz').classList.add('hidden');
+        document.getElementById('step-gate').classList.remove('hidden');
+      }
+    }
+
+    document.getElementById('opt-a-btn').addEventListener('click', () => recordChoice('A'));
+    document.getElementById('opt-b-btn').addEventListener('click', () => recordChoice('B'));
+
+    document.getElementById('prev-q-btn').addEventListener('click', () => {
+      if (qIndex > 0) {
+        qIndex--;
+        renderQuestion();
+      }
+    });
+
+    // Reset App
+    document.getElementById('reset-app-btn').addEventListener('click', () => {
+      statedTop3 = [];
+      qIndex = 0;
+      answers = {};
+      triggeredTraps = [];
+      document.querySelectorAll('.pillar-tile').forEach(t => t.classList.remove('border-gold', 'bg-navy/50', 'gold-glow'));
+      document.getElementById('selection-count').textContent = '0 of 3 priorities selected';
+      document.getElementById('start-quiz-btn').disabled = true;
+      document.getElementById('step-quiz').classList.add('hidden');
+      document.getElementById('step-gate').classList.add('hidden');
+      document.getElementById('step-report').classList.add('hidden');
+      document.getElementById('step-stated').classList.remove('hidden');
+    });
+
+    // Instant Demo Button
+    document.getElementById('instant-demo-btn').addEventListener('click', () => {
+      statedTop3 = ['F', 'P', 'M'];
+      SCENARIOS.forEach((s, idx) => {
+        const growthChoice = s.trapChoice === 'A' ? 'B' : 'A';
+        answers[s.key] = idx < 16 ? s.trapChoice : growthChoice;
+      });
+      rebuildTrapsList();
+      document.getElementById('step-stated').classList.add('hidden');
+      document.getElementById('step-quiz').classList.add('hidden');
+      document.getElementById('step-gate').classList.add('hidden');
+      document.getElementById('reset-app-btn').classList.remove('hidden');
+      buildStrategicReport(
+        "Samuel",
+        "samuel@example.com",
+        "Use AI to remove cashflow and time bottlenecks, grow my business, and speak with honour in any crowd"
+      );
+    });
+
+    // Gate Submission
+    document.getElementById('gate-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('user-name').value.trim() || "Friend";
+      const email = document.getElementById('user-email').value.trim();
+      const goal = document.getElementById('user-goal').value.trim();
+      document.getElementById('step-gate').classList.add('hidden');
+      buildStrategicReport(name, email, goal);
+    });
+
+    function calculatePortfolio(overrides = { aiShift: 0, capShift: 0, timeShift: 0 }) {
+      const keys = ['T', 'F', 'A', 'P', 'C', 'M', 'H', 'G'];
+      const current = { T: 58, F: 58, A: 58, P: 58, C: 58, M: 58, H: 58, G: 58 };
+      let totalLeak = 0;
+
+      SCENARIOS.forEach(s => {
+        const c = answers[s.key] || s.trapChoice;
+        const isTrap = c === s.trapChoice;
+        const d = isTrap ? s.deltaTrap : s.deltaGrowth;
+        keys.forEach(k => current[k] += d[k]);
+        totalLeak += d.leak;
+      });
+
+      // Apply Interactive Sliders
+      const aiBonus = Math.round(overrides.aiShift * 0.35);
+      const capBonus = Math.round((overrides.capShift / 250) * 28);
+      const timeBonus = Math.round(overrides.timeShift * 3.2);
+
+      current.A = clamp(current.A + aiBonus);
+      current.T = clamp(current.T + timeBonus + Math.round(aiBonus * 0.4));
+      current.F = clamp(current.F + capBonus + Math.round(aiBonus * 0.5));
+      current.P = clamp(current.P + Math.round(aiBonus * 0.6) + Math.round(capBonus * 0.4));
+      current.C = clamp(current.C + Math.round(timeBonus * 0.5) + Math.round(capBonus * 0.4));
+      current.M = clamp(current.M + Math.round(timeBonus * 0.5) + Math.round(capBonus * 0.4));
+      current.H = clamp(current.H + Math.round(timeBonus * 0.7));
+      current.G = clamp(current.G + Math.round((aiBonus + capBonus + timeBonus) * 0.55));
+
+      keys.forEach(k => current[k] = clamp(current[k], 15, 96));
+
+      const leakReduction = Math.round((overrides.aiShift * 0.35) + ((overrides.capShift / 250) * 30) + (overrides.timeShift * 2.5));
+      totalLeak = clamp(totalLeak - leakReduction, 4, 100);
+
+      const guided = {};
+      keys.forEach(k => {
+        guided[k] = clamp(Math.max(current[k] + 12, 86 + (k === 'A' || k === 'F' ? 6 : 2)), 84, 98);
+      });
+
+      const hoursLost = Math.round((totalLeak / 100) * 680);
+      const moneyLeak = Math.round((totalLeak / 100) * 5400);
+      const topKeys = statedTop3.length === 3 ? statedTop3 : ['F', 'P', 'M'];
+      const avgStated = (current[topKeys[0]] + current[topKeys[1]] + current[topKeys[2]]) / 3;
+      const alignment = clamp((avgStated / 100) * (100 - totalLeak * 0.38), 18, 97);
+
+      const aiTier = current.A < 45
+        ? "Level 1: Surface Dabbler"
+        : current.A < 74
+        ? "Level 2: Intermediate Builder"
+        : "Level 3: Advanced AI Operator";
+
+      return { current, guided, totalLeak, hoursLost, moneyLeak, alignment, aiTier };
+    }
+
+    function drawRadar(current, guided, topKeys) {
+      const canvas = document.getElementById('radarCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const r = 112;
+      const keys = ['T', 'F', 'A', 'P', 'C', 'M', 'H', 'G'];
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Web rings
+      [0.25, 0.5, 0.75, 1].forEach(level => {
+        ctx.beginPath();
+        keys.forEach((_, i) => {
+          const angle = (Math.PI * 2 * i) / keys.length - Math.PI / 2;
+          const x = cx + Math.cos(angle) * r * level;
+          const y = cy + Math.sin(angle) * r * level;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.18)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+
+      // Axes & Labels
+      keys.forEach((k, i) => {
+        const angle = (Math.PI * 2 * i) / keys.length - Math.PI / 2;
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)';
+        ctx.stroke();
+
+        const lx = cx + Math.cos(angle) * (r + 34);
+        const ly = cy + Math.sin(angle) * (r + 22);
+        const isStar = topKeys.includes(k);
+        ctx.fillStyle = isStar ? '#D4AF37' : '#cbd5e1';
+        ctx.font = isStar ? 'bold 11px Inter, sans-serif' : '11px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(SHORT_LABELS[k] + (isStar ? ' ★' : ''), lx, ly);
+      });
+
+      const plotPoly = (dataObj, stroke, fill) => {
+        ctx.beginPath();
+        keys.forEach((k, i) => {
+          const val = (dataObj[k] || 20) / 100;
+          const angle = (Math.PI * 2 * i) / keys.length - Math.PI / 2;
+          const x = cx + Math.cos(angle) * r * val;
+          const y = cy + Math.sin(angle) * r * val;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fillStyle = fill;
+        ctx.fill();
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 2.2;
+        ctx.stroke();
+      };
+
+      plotPoly(guided, '#10b981', 'rgba(16, 185, 129, 0.14)');
+      plotPoly(current, '#ef4444', 'rgba(239, 68, 68, 0.28)');
+    }
+
+    function updateMetricsUI(stats) {
+      const topKeys = statedTop3.length === 3 ? statedTop3 : ['F', 'P', 'M'];
+      document.getElementById('kpi-time-lost').textContent = `${stats.hoursLost} hrs/yr`;
+      document.getElementById('kpi-weeks-lost').textContent = `≈ ${(stats.hoursLost / 40).toFixed(1)} full 40-hr workweeks lost/yr`;
+      document.getElementById('kpi-money-leak').textContent = `£${stats.moneyLeak.toLocaleString()}/yr`;
+      document.getElementById('kpi-ai-tier').textContent = stats.aiTier.split(':')[0];
+      document.getElementById('kpi-ai-sub').textContent = stats.aiTier.split(':')[1] || "Surface vs Systems";
+      document.getElementById('kpi-alignment').textContent = `${stats.alignment}%`;
+
+      // Render 8-Pillar Comparison Bars
+      const barsWrap = document.getElementById('bars-comparison-wrap');
+      barsWrap.innerHTML = '';
+      ['T', 'F', 'A', 'P', 'C', 'M', 'H', 'G'].forEach(k => {
+        const cur = stats.current[k];
+        const gui = stats.guided[k];
+        const isTop = topKeys.includes(k);
+        barsWrap.innerHTML += `
+          <div>
+            <div class="flex flex-wrap justify-between text-xs sm:text-sm font-semibold mb-1">
+              <span class="text-white">${PILLAR_LABELS[k]} ${isTop ? '<strong class="text-gold">(Your Deliberate Priority ★)</strong>' : ''}</span>
+              <span>
+                <span class="text-crimson font-bold">Current Path: ${cur}%</span>
+                <span class="text-slate-500 mx-1">→</span>
+                <span class="text-emerald font-bold">AI Bottleneck Removal Path: ${gui}%</span>
+              </span>
+            </div>
+            <div class="bg-obsidian border border-border rounded-lg p-1.5 space-y-1.5">
+              <div class="h-2.5 rounded bg-crimson transition-all duration-300" style="width:${cur}%"></div>
+              <div class="h-2.5 rounded bg-emerald transition-all duration-300" style="width:${gui}%"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      drawRadar(stats.current, stats.guided, topKeys);
+    }
+
+    function buildStrategicReport(name, email, goal) {
+      document.getElementById('step-stated').classList.add('hidden');
+      document.getElementById('step-quiz').classList.add('hidden');
+      document.getElementById('step-gate').classList.add('hidden');
+      document.getElementById('step-report').classList.remove('hidden');
+
+      const stats = calculatePortfolio();
+      const topKeys = statedTop3.length === 3 ? statedTop3 : ['F', 'P', 'M'];
+      const statedNames = topKeys.map(k => PILLAR_LABELS[k]);
+
+      document.getElementById('report-headline').textContent = `${name}'s "How Will You Measure Your Life" Strategic Dossier`;
+      document.getElementById('report-subheadline').innerHTML = `12-Month Deliberate Aspiration: <strong class="text-gold">"${goal}"</strong>`;
+      document.getElementById('hbs-stated-inline').textContent = statedNames.join(', ');
+      document.getElementById('confirm-name').textContent = name;
+
+      updateMetricsUI(stats);
+
+      // Build Plain-English Individualised Write-Up
+      let letter = `
+        <div class="border-b border-border pb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-gold">Individualised Strategic Write-Up • The "Sensible Choices" Audit</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">
+            Dear ${name}, Why Your Most "Sensible" Daily Choices Are Quietly Costing You Your Future
+          </h2>
+        </div>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          During the 20 decisions you just made, none of your choices looked reckless or foolish. In fact, in isolation, your decisions looked <strong>thrifty, humble, loyal, and well-deserved</strong>. And that is the exact trap Harvard Business School Professor Clayton Christensen warned about in <em>"How Will You Measure Your Life?"</em>.
+        </p>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          People rarely ruin their lives by making obviously bad decisions. They stall their lives by making choices that feel prudent today, without seeing the <strong>12-month compounding cost</strong>. At the start of this audit, you declared that your top priorities are <strong>${statedNames[0]}</strong>, <strong>${statedNames[1]}</strong>, and <strong>${statedNames[2]}</strong>, and that your 12-month goal is to <em>"${goal}"</em>. Here is what your choices actually build over the next year:
+        </p>
+      `;
+
+      if (triggeredTraps.includes('youtube_freebie') || triggeredTraps.includes('basic_ai_ceiling') || triggeredTraps.includes('high_time_overhead')) {
+        letter += `
+          <div class="bg-gold/[0.07] border-l-4 border-gold p-4 rounded-r-xl space-y-1">
+            <h3 class="font-bold text-white text-base">1. The Self-Reliant Freebie Mirage: Basic AI vs. Bottleneck Removal</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              You chose to be thrifty and self-reliant by researching free short videos on YouTube and using basic AI as a quick assistant. While that feels financially sensible today, it leaves your core <strong>productivity and cashflow bottlenecks completely untouched</strong>. Today, all real business growth, company expansion, and 70% time-overhead reduction happen when you use AI to actively remove bottlenecks. Trying to stitch those workflows together alone from free clips is quietly costing you roughly <strong>${stats.hoursLost} hours a year</strong> in manual work and trial-and-error.
+            </p>
+          </div>
+        `;
+      }
+
+      if (triggeredTraps.includes('comfort_spending') || triggeredTraps.includes('delay_investment') || triggeredTraps.includes('stress_spending')) {
+        letter += `
+          <div class="bg-gold/[0.07] border-l-4 border-gold p-4 rounded-r-xl space-y-1">
+            <h3 class="font-bold text-white text-base">2. The Well-Deserved Reward Trap: 48-Hour Comfort vs. Cashflow Capability</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              After working hard all month, rewarding yourself and your family with nice clothes, takeaways, dining out, and weekend entertainment feels completely earned. Meanwhile, delaying a modest investment in bottleneck-removal mentorship feels "cautious." Yet look at the math: clothes, food, and entertainment depreciate to zero in 48 hours, whereas redirecting a modest amount into AI mentorship clears your cashflow bottlenecks and builds an asset that pays you back for the next decade.
+            </p>
+          </div>
+        `;
+      }
+
+      if (triggeredTraps.includes('crowd_hesitation') || triggeredTraps.includes('stage_avoidance') || triggeredTraps.includes('peer_stagnation') || triggeredTraps.includes('community_scarcity')) {
+        letter += `
+          <div class="bg-gold/[0.07] border-l-4 border-gold p-4 rounded-r-xl space-y-1">
+            <h3 class="font-bold text-white text-base">3. The Careful Humility Cost: Peer Honour & Speaking in a Crowd</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              In rooms of peers or when invited to speak in front of 100 people, choosing to stay quiet in your seat until you feel "100% ready" looks like humility. In reality, waiting on the sidelines costs you <strong>Peer Honour and Community Respect</strong>. The reason people hesitate to speak up in crowds is that free social media clips only give you buzzwords. When you use AI to remove your business and knowledge bottlenecks, you gain undeniable substance. When you speak, leaders listen.
+            </p>
+          </div>
+        `;
+      }
+
+      if (triggeredTraps.includes('buried_talents') || triggeredTraps.includes('faith_without_prep') || triggeredTraps.includes('health_neglect') || triggeredTraps.includes('stalled_aspiration')) {
+        letter += `
+          <div class="bg-gold/[0.07] border-l-4 border-gold p-4 rounded-r-xl space-y-1">
+            <h3 class="font-bold text-white text-base">4. Faith, Stewardship, Health & Preparing the Vessel</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Being grateful and patient is a virtue, but in the Parable of the Talents, true stewardship requires <strong>multiplying what you were given</strong>. Pushing through exhaustion manually and waiting for a "quieter season" leaves your health drained and your biggest aspirations stuck in your phone notes. Using AI systems to clear your weekly productivity and cashflow bottlenecks gives you the margin to protect your health, honour your faith, and bring your 12-month vision to life.
+            </p>
+          </div>
+        `;
+      }
+
+      document.getElementById('personalised-letter-container').innerHTML = letter;
+
+      // Populate Cost of Inaction vs Benefits of Action Lists
+      document.getElementById('cost-of-inaction-list').innerHTML = `
+        <li class="flex items-start gap-2.5"><span class="text-crimson font-bold">✕</span> <div><strong>Time & Health Bleed:</strong> Losing <strong>${stats.hoursLost} hours/year</strong> to manual overhead leaves you too drained in the evenings to exercise, rest, or build your dream.</div></li>
+        <li class="flex items-start gap-2.5"><span class="text-crimson font-bold">✕</span> <div><strong>Financial & Business Drift:</strong> Leaking ~<strong>£${stats.moneyLeak.toLocaleString()}/year</strong> into short-term comfort (clothes, food, entertainment) while cashflow and productivity bottlenecks keep your revenue flat.</div></li>
+        <li class="flex items-start gap-2.5"><span class="text-crimson font-bold">✕</span> <div><strong>Lost Peer Honour & Voice:</strong> Remaining hesitant to speak in crowds or high-level rooms because free YouTube clips never gave you deep bottleneck-removal mastery.</div></li>
+        <li class="flex items-start gap-2.5"><span class="text-crimson font-bold">✕</span> <div><strong>Stalled Faith & Community Impact:</strong> Wanting to be a respected pillar of generosity in your community, but lacking the time margin and financial surplus to lead.</div></li>
+      `;
+
+      document.getElementById('benefits-of-action-list').innerHTML = `
+        <li class="flex items-start gap-2.5"><span class="text-emerald font-bold">✓</span> <div><strong>Productivity & Cashflow Bottleneck Removal:</strong> Cut weekly time overheads by 40% to 70% and use AI workflows to clear administrative and revenue bottlenecks instantly.</div></li>
+        <li class="flex items-start gap-2.5"><span class="text-emerald font-bold">✓</span> <div><strong>Command Respect in Any Crowd:</strong> Walk into meetings, community events, and stages with the real-world competence that earns immediate honour from peers.</div></li>
+        <li class="flex items-start gap-2.5"><span class="text-emerald font-bold">✓</span> <div><strong>New Business & Income Growth:</strong> Turn modest, smart investments in mentorship into practical systems that clear cashflow bottlenecks and scale your venture.</div></li>
+        <li class="flex items-start gap-2.5"><span class="text-emerald font-bold">✓</span> <div><strong>Whole-Life Stewardship (Faith, Health & Goals):</strong> Reclaim the weekly hours you need to honour your health, serve your faith and community, and finish your #1 aspiration.</div></li>
+      `;
+
+      window.currentAuditSession = { name, email, goal, stats, triggeredTraps, statedNames };
+    }
+
+    // Interactive Sliders Handler
+    function handleSliders() {
+      const aiShift = parseInt(document.getElementById('slider-ai').value, 10);
+      const capShift = parseInt(document.getElementById('slider-cap').value, 10);
+      const timeShift = parseInt(document.getElementById('slider-time').value, 10);
+
+      document.getElementById('lbl-slider-ai').textContent = `+${aiShift}% AI Systems`;
+      document.getElementById('lbl-slider-cap').textContent = `£${capShift}/mo Reallocated`;
+      document.getElementById('lbl-slider-time').textContent = `${timeShift} hrs/wk Saved`;
+
+      const updatedStats = calculatePortfolio({ aiShift, capShift, timeShift });
+      updateMetricsUI(updatedStats);
+    }
+
+    ['slider-ai', 'slider-cap', 'slider-time'].forEach(id => {
+      document.getElementById(id).addEventListener('input', handleSliders);
+    });
+
+    document.getElementById('max-leverage-btn').addEventListener('click', () => {
+      document.getElementById('slider-ai').value = 100;
+      document.getElementById('slider-cap').value = 200;
+      document.getElementById('slider-time').value = 8;
+      handleSliders();
+    });
+
+    // Enquiry Form Submission
+    document.getElementById('enquiry-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('send-enquiry-btn');
+      btn.disabled = true;
+      btn.textContent = "Sending Your Enquiry & 20-Point Strategic Audit...";
+
+      const selectedTopics = Array.from(document.querySelectorAll('input[name="help_topic"]:checked')).map(cb => cb.value);
+      const phone = document.getElementById('enquiry-phone').value.trim();
+      const preferredTime = document.getElementById('enquiry-time').value;
+      const message = document.getElementById('enquiry-message').value.trim();
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        framework: "Clayton Christensen HBS 20-Point Life Portfolio & AI Bottleneck Diagnostic",
+        user: {
+          name: window.currentAuditSession?.name || "Visitor",
+          email: window.currentAuditSession?.email || "",
+          phone: phone,
+          preferredCallTime: preferredTime,
+          aspiration12Month: window.currentAuditSession?.goal || ""
+        },
+        enquiry: {
+          requestedHelpTopics: selectedTopics,
+          note: message
+        },
+        deliberatePriorities: window.currentAuditSession?.statedNames || [],
+        auditMetrics: window.currentAuditSession?.stats || {},
+        comfortZoneTragsDetected: window.currentAuditSession?.triggeredTraps || []
+      };
+
+      document.getElementById('webhook-json-preview').textContent = JSON.stringify(payload, null, 2);
+
+      try {
+        if (WEBHOOK_URL && !WEBHOOK_URL.includes("YOUR_WEBHOOK_ENDPOINT_HERE")) {
+          await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+        }
+      } catch (err) {
+        console.warn("Local demo fallback:", err);
+      }
+
+      document.getElementById('enquiry-form').classList.add('hidden');
+      document.getElementById('enquiry-confirmation').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

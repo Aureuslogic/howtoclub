@@ -1,0 +1,9 @@
+{
+  "name": "how-will-you-measure",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive 20-point life and legacy diagnostic",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
